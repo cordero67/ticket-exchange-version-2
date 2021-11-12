@@ -55,14 +55,14 @@ contract ERC20Interface {
 /// @author The name of the author
 /// @notice Explain to an end user what this does
 /// @dev Explain to a developer any extra details
-contract Token is ERC20Interface {
+contract TempToken is ERC20Interface {
     using SafeMath for uint256;
 
     string public name = "Blu Mun Token";
     string public symbol = "BLMN";
     uint256 public decimals = 18;
     uint256 public totalSupply;
-
+    
     // keeps track of each address' token balance
     mapping(address => uint256) public balanceOf;
 
@@ -73,8 +73,6 @@ contract Token is ERC20Interface {
     mapping(address => mapping(address => uint256)) public allowance;
 
     address public owner; // NOT part of ERC20Interface/Standard
-
-    enum State {Running, Stopped, Inactive}
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(
@@ -88,7 +86,7 @@ contract Token is ERC20Interface {
         owner = msg.sender; // identify contract deployer as owner
         balanceOf[owner] = totalSupply; // give all initial token supply to owner
     }
-
+    
     // helper function that performs token exchange between accounts
     function _transfer(
         address _from,
@@ -129,10 +127,9 @@ contract Token is ERC20Interface {
         return true;
     }
 
-    // transfers tokens from one account "_from" to second account "_to" by a third account ("msg.sender")
+    // transfers tokens from one account to second account by a third account ("msg.sender")
     // second and third accounts can be the same address
     // third account must be approved by first account i.e. first account's tokens that will be transferred
-    // allowance amount defined by "allowance[_from][msg.sender]" must be established
     function transferFrom(
         address _from,
         address _to,
@@ -150,4 +147,5 @@ contract Token is ERC20Interface {
         _transfer(_from, _to, _value);
         return true;
     }
+
 }

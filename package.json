@@ -1,7 +1,7 @@
 {
-  "name": "Crypto Ticket Exchange",
+  "name": "blu-mun-event-ticketing",
   "version": "0.2.0",
-  "description": "Decentralized Crypto Ticket Creator and Exchange",
+  "description": "Decentralized Crypto Event Ticketing Portal",
   "author": "Rafael Cordero",
   "private": true,
   "homepage": ".",
@@ -35,7 +35,7 @@
     "redux-logger": "3.0.6",
     "reselect": "4.0.0",
     "solidity-coverage": "0.7.10",
-    "truffle": "5.1.45",
+    "truffle": "^5.3.14",
     "truffle-flattener": "1.5.0",
     "truffle-hdwallet-provider-privkey": "0.3.0",
     "web3": "1.2.6"
